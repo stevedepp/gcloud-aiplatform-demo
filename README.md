@@ -1,5 +1,6 @@
 ### Demonstrates Google ai-platform CLI for multi-class classification as shown in Geewax chapter 18
 
+Geewax, J. J. (2018). Google Cloud Platform in Action. Manning Publications.
 
 
 https://cloud.google.com/sdk/gcloud/reference/services/enable
