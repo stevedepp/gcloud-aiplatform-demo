@@ -62,7 +62,7 @@ https://cloud.google.com/ai-platform/prediction/docs/runtime-version-list
      - python 2.7 end of life at google Jan 2020, but still seems to run
    - global steps / sec = 4.65 and with 10,000 steps / 4.65 / 60 = 35 minutes. 
 <img width="1151" alt="7" src="https://user-images.githubusercontent.com/38410965/97050052-b302cb00-154a-11eb-8b03-66f7a3a6ffb2.png">
-We can also see logs GCP
+- [x] We can also see logs on the GCP
 https://console.cloud.google.com/logs/query;query=resource.labels.job_id%3D%22cloud1%22%20timestamp%3E%3D%222020-10-23T07:43:09Z%22?project=msds434dv6
 <img width="1208" alt="8" src="https://user-images.githubusercontent.com/38410965/97050061-b72ee880-154a-11eb-93ef-935641269477.png">
 
@@ -82,6 +82,7 @@ https://cloud.google.com/sdk/gcloud/reference/ai-platform/versions/create
 
 - [x] note: the documentation is a bit sketchy here. 
   - `version_name` is the only mandatory argument and `--model` the only mandatory flag, but errors are thrown unless you include these flags: `--staging_bucket`, `--origin`, `--runtime-version` 
+  
 https://cloud.google.com/sdk/gcloud/reference/ai-platform/versions/create#--model
 
 https://cloud.google.com/sdk/gcloud/reference/ai-platform/versions/create#--staging-bucket
