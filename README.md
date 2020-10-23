@@ -147,12 +147,25 @@ https://console.cloud.google.com/logs/query;query=resource.labels.job_id%3D%22pr
 - [x] note: gcloud ai-platform jobs submit prediction …
   - again the documentation is a bit confusing: on the one hand runtime_version “must be specified unless -master-image-uri is specified” and in the error “Runtime version should only be specified when the model URI is suppled”
 https://cloud.google.com/sdk/gcloud/reference/ai-platform/jobs/submit/prediction#--data-format
-
 <img width="682" alt="23" src="https://user-images.githubusercontent.com/38410965/97050247-070daf80-154b-11eb-8a89-e8b946afd653.png">
+<img width="734" alt="23 1" src="https://user-images.githubusercontent.com/38410965/97053016-1b07e000-1550-11eb-9f12-39ab59c0e877.png">
 
+https://cloud.google.com/storage/docs/deleting-buckets
+
+- [x] step 16: don’t over pay: delete the bucket
+  - `gsutil rm -r gs://dv-aut-ml-depp`
+  - alternatives:
+   - `rm` will remove bucket and any contents in one go
+   - `rb` will removes bucket only if empty
 
 <img width="682" alt="24" src="https://user-images.githubusercontent.com/38410965/97050256-0aa13680-154b-11eb-8989-87dfbb22055f.png">
 
+https://cloud.google.com/sdk/gcloud/reference/ml-engine/versions/delete
+
+- [x] step 16 continued: delete version then delete model then disable api
+  - `gcloud ai-platform versions delete v1 --model census`
+  - `gcloud ai-platform models delete census`
+  - `gcloud services disable ml.googleapis.com`
 
 <img width="682" alt="25" src="https://user-images.githubusercontent.com/38410965/97050269-0f65ea80-154b-11eb-91dd-c24d20392bea.png">
 
