@@ -2,6 +2,12 @@
 Demonstrates Google ai-platform CLI for multi-class classification as shown in Geewax chapter 18
 
 
+
+https://cloud.google.com/sdk/gcloud/reference/services/enable
+
+[x] step 1: Enable the API
+  - `gcloud services list`
+  - `gcloud services enable ml.googleapis.com`
 <img width="682" alt="1" src="https://user-images.githubusercontent.com/38410965/97049962-9070b200-154a-11eb-94ae-1ea8df988f14.png">
 
 
