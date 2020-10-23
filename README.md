@@ -68,7 +68,7 @@ https://console.cloud.google.com/logs/query;query=resource.labels.job_id%3D%22cl
 <img width="1208" alt="8" src="https://user-images.githubusercontent.com/38410965/97050061-b72ee880-154a-11eb-93ef-935641269477.png">
 
 - [x] step 9: review the job
-  - `gcloud ai-platform jobs describe cloud1'
+  - `gcloud ai-platform jobs describe cloud1`  
 <img width="682" alt="9" src="https://user-images.githubusercontent.com/38410965/97050080-bdbd6000-154a-11eb-830f-d24c6e940878.png">
 
 - [x] step 10: review the output files and model stored in the bucket
@@ -79,7 +79,7 @@ https://console.cloud.google.com/logs/query;query=resource.labels.job_id%3D%22cl
 https://cloud.google.com/sdk/gcloud/reference/ai-platform/versions/create
 
 - [x] step 11: create version 1 of the model
-  - gcloud ai-platform versions create v1 --model census --staging-bucket gs://dv-auto-ml-depp --origin gs://dv-auto-ml-depp/census/export --runtime-version 1.15
+  - `gcloud ai-platform versions create v1 --model census --staging-bucket gs://dv-auto-ml-depp --origin gs://dv-auto-ml-depp/census/export --runtime-version 1.15`
 
 - [x] note for step 11: the documentation is a bit sketchy here. 
   - `version_name` is the only mandatory argument and `--model` the only mandatory flag, but errors are thrown unless you include these flags: `--staging_bucket`, `--origin`, `--runtime-version` 
@@ -119,7 +119,7 @@ https://cloud.google.com/sdk/gcloud/reference/ai-platform/predict
 https://cloud.google.com/sdk/gcloud/reference/ai-platform/jobs/submit/prediction
 
 - [x] step 14: submit prediction job for a test_batch.json dataset with 11 rows for ages 20-70 
-  - gcloud ai-platform jobs submit prediction prediction1 --model census --version v1 --data-format text --region us-central1 --input-paths gs://dv-auto-ml-depp/test_batch.json --output-path gs://dv-auto-ml-depp/prediction1-output`
+  - `gcloud ai-platform jobs submit prediction prediction1 --model census --version v1 --data-format text --region us-central1 --input-paths gs://dv-auto-ml-depp/test_batch.json --output-path gs://dv-auto-ml-depp/prediction1-output`
   - (somewhat disconcerting to have no message when QUEUED for > 5 minutes)
 <img width="682" alt="16" src="https://user-images.githubusercontent.com/38410965/97050152-dfb6e280-154a-11eb-8c4e-a59bb87ed3a1.png">
 
