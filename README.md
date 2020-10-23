@@ -9,20 +9,51 @@ https://cloud.google.com/sdk/gcloud/reference/services/enable
   - `gcloud services list`
   - `gcloud services enable ml.googleapis.com`
 <img width="682" alt="1" src="https://user-images.githubusercontent.com/38410965/97049962-9070b200-154a-11eb-94ae-1ea8df988f14.png">
+Note: 
+ml-engine replaced by gcloud ai-platform
 
+https://cloud.google.com/sdk/gcloud/reference/ai-platform/models/create
 
+[x] step 2:  create model
+  - `gcloud ai-platform models create census --description 'Census example'`
+  - `gcloud ai-platform models list`
+  - `gcloud ai-platform versions list --model census`
 <img width="682" alt="2" src="https://user-images.githubusercontent.com/38410965/97049979-95356600-154a-11eb-891e-4a25003f485d.png">
 
+https://github.com/amygdala/tensorflow-workshop/tree/master/workshop_sections/wide_n_deep
 
+[x] step 3: set up the environment 
+  - `python3 -m venv .venv` 
+  - `source .venv/bin/activate` 
+  - `mkdir data`
+[x] step 4: retrieve the data
+  - `git clone https://github.com/amygdala/tensorflow-workshop.git`
+  - `ls tensorflow-workshop/workshop_sections/wide_n_deep`
+  - `cp tensorflow-workshop/workshop_sections/wide_n_deep/adult* ./data/`
 <img width="682" alt="3" src="https://user-images.githubusercontent.com/38410965/97050001-99fa1a00-154a-11eb-8247-d9654f86f2fd.png">
 
+https://cloud.google.com/storage/docs/gsutil/commands/mb
 
+[x] step 5: move data to GCP google storage 
+  - `gsutil cp ./data/adult.test.csv data gs://dv-auto-ml-depp/data`
+  - `gsutil cp ./data/adult.data.csv data gs://dv-auto-ml-depp/data`
+  - `gsutil ls gs://dv-auto-ml-depp/data`
 <img width="682" alt="4" src="https://user-images.githubusercontent.com/38410965/97050011-9e263780-154a-11eb-9267-dfd7b0930f51.png">
 
+https://github.com/GoogleCloudPlatform/cloudml-samples
 
+[x] step 6: retrieve the canned model
+  - `git clone https://github.com/GoogleCloudPlatform/cloudml-samples`
+  - `ls cloudml-samples/census/tensorflowcore/trainer`
+  - `cd cloudml-samples/census/tensorflowcore`
 <img width="682" alt="5" src="https://user-images.githubusercontent.com/38410965/97050028-a67e7280-154a-11eb-829a-123e0dc524f8.png">
 
+https://cloud.google.com/sdk/gcloud/reference/ai-platform/jobs/submit/training
 
+https://cloud.google.com/ai-platform/prediction/docs/runtime-version-list
+
+[x] step 7: submit the job
+  - 'gcloud ai-platform jobs submit training cloud1 --stream-logs --runtime-version 1.15 --job-dir gs://dv-auto-ml-depp/census --module-name trainer.task --package-path trainer/ --region us-central1 -- --train-files gs://dv-auto-ml-depp/data/adult.data.csv --eval-files gs://dv-auto-ml-depp/data/adult.test.csv --train-steps 10000 --eval-steps 500'
 <img width="682" alt="6" src="https://user-images.githubusercontent.com/38410965/97050044-ada58080-154a-11eb-9571-301e3bbc2245.png">
 
 
