@@ -55,7 +55,7 @@ https://cloud.google.com/sdk/gcloud/reference/ai-platform/jobs/submit/training
 https://cloud.google.com/ai-platform/prediction/docs/runtime-version-list
 
 - [x] step 7: submit the job
-  - 'gcloud ai-platform jobs submit training cloud1 --stream-logs --runtime-version 1.15 --job-dir gs://dv-auto-ml-depp/census --module-name trainer.task --package-path trainer/ --region us-central1 -- --train-files gs://dv-auto-ml-depp/data/adult.data.csv --eval-files gs://dv-auto-ml-depp/data/adult.test.csv --train-steps 10000 --eval-steps 500'
+  - `gcloud ai-platform jobs submit training cloud1 --stream-logs --runtime-version 1.15 --job-dir gs://dv-auto-ml-depp/census --module-name trainer.task --package-path trainer/ --region us-central1 -- --train-files gs://dv-auto-ml-depp/data/adult.data.csv --eval-files gs://dv-auto-ml-depp/data/adult.test.csv --train-steps 10000 --eval-steps 500`
 <img width="682" alt="6" src="https://user-images.githubusercontent.com/38410965/97050044-ada58080-154a-11eb-9571-301e3bbc2245.png">
 
 - [x] step 8: read the logs
