@@ -103,7 +103,7 @@ https://cloud.google.com/sdk/gcloud/reference/ai-platform/predict
 —> 78.4% confidence the correct class is “<=50k” 
 <img width="682" alt="12" src="https://user-images.githubusercontent.com/38410965/97050127-cf066c80-154a-11eb-8088-caad85ac9a77.png">
 
-  - `cat test.json`
+  `cat test.json`
 
 <img width="682" alt="13" src="https://user-images.githubusercontent.com/38410965/97050129-d299f380-154a-11eb-8aa6-6aa3eaad26cf.png">
 
