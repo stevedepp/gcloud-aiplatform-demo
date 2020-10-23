@@ -100,6 +100,7 @@ https://cloud.google.com/sdk/gcloud/reference/ai-platform/predict
 <img width="682" alt="12" src="https://user-images.githubusercontent.com/38410965/97050127-cf066c80-154a-11eb-8088-caad85ac9a77.png">
 
 `test.json`
+
 <img width="682" alt="13" src="https://user-images.githubusercontent.com/38410965/97050129-d299f380-154a-11eb-8aa6-6aa3eaad26cf.png">
 
 [x] step 13: copy the `test.json` file into `test2.json` and see model sensitivity with a change the age feature modified from 25 to 20.
@@ -109,28 +110,36 @@ https://cloud.google.com/sdk/gcloud/reference/ai-platform/predict
 
 <img width="682" alt="14" src="https://user-images.githubusercontent.com/38410965/97050135-d6c61100-154a-11eb-9d6e-fb9da9e28d69.png">
 
+`test2.json`
 
 <img width="682" alt="15" src="https://user-images.githubusercontent.com/38410965/97050139-dc235b80-154a-11eb-871a-92232d713649.png">
 
+https://cloud.google.com/sdk/gcloud/reference/ai-platform/jobs/submit/prediction
 
+[x] step 14: submit prediction job for a test_batch.json dataset with 11 rows for ages 20-70 
+  - gcloud ai-platform jobs submit prediction prediction1 --model census --version v1 --data-format text --region us-central1 --input-paths gs://dv-auto-ml-depp/test_batch.json --output-path gs://dv-auto-ml-depp/prediction1-output`
+  - (somewhat disconcerting to have no message when QUEUED for > 5 minutes)
 <img width="682" alt="16" src="https://user-images.githubusercontent.com/38410965/97050152-dfb6e280-154a-11eb-8c4e-a59bb87ed3a1.png">
 
+`test_batch.json`
 
 <img width="682" alt="17" src="https://user-images.githubusercontent.com/38410965/97050174-e6455a00-154a-11eb-9211-c7243ed8716e.png">
 
+https://console.cloud.google.com/logs/query;query=resource.labels.job_id%3D%22prediction1%22%20timestamp%3E%3D%222020-10-23T09:43:55Z%22?project=msds434dv6
 
+[x] step 14 continued: Look at the GCP logs for this job
 <img width="1208" alt="18" src="https://user-images.githubusercontent.com/38410965/97050187-ec3b3b00-154a-11eb-843c-e79a7c082ad7.png">
 
-
+[x] step 14 continued: Look at the GCP logs for this job
 <img width="1208" alt="19" src="https://user-images.githubusercontent.com/38410965/97050208-f52c0c80-154a-11eb-8bef-50811e89beb1.png">
-
-
 <img width="687" alt="20" src="https://user-images.githubusercontent.com/38410965/97050217-f9f0c080-154a-11eb-94d9-d06a797f28ee.png">
 
+[x] step15: review the prediction job output in the bucket and the description of the job
+  - `gsutil ls gs://dv-auto-ml-depp/prediction1-output`
+  - `gsutil cat gs://dv-auto-ml-depp/prediction1-output/prediction.results-00000-of-00001`
+  - `gcloud ai-platform jobs describe prediction1`
 
 <img width="682" alt="21" src="https://user-images.githubusercontent.com/38410965/97050223-fe1cde00-154a-11eb-929d-8a9fe437b79b.png">
-
-
 <img width="682" alt="22" src="https://user-images.githubusercontent.com/38410965/97050236-037a2880-154b-11eb-812a-a1cd7199778c.png">
 
 
