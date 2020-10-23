@@ -56,27 +56,56 @@ https://cloud.google.com/ai-platform/prediction/docs/runtime-version-list
   - 'gcloud ai-platform jobs submit training cloud1 --stream-logs --runtime-version 1.15 --job-dir gs://dv-auto-ml-depp/census --module-name trainer.task --package-path trainer/ --region us-central1 -- --train-files gs://dv-auto-ml-depp/data/adult.data.csv --eval-files gs://dv-auto-ml-depp/data/adult.test.csv --train-steps 10000 --eval-steps 500'
 <img width="682" alt="6" src="https://user-images.githubusercontent.com/38410965/97050044-ada58080-154a-11eb-9571-301e3bbc2245.png">
 
-
+[x] step 8: read the logs
+  - took 30 minutes to get log results
+      - notes old version of some dependencies
+      - python 2.7 end of life at google Jan 2020, but still seems to run
+  - global steps / sec = 4.65 and with 10,000 steps / 4.65 / 60 = 35 minutes. 
 <img width="1151" alt="7" src="https://user-images.githubusercontent.com/38410965/97050052-b302cb00-154a-11eb-8b03-66f7a3a6ffb2.png">
-
-
+We can also see logs GCP
+https://console.cloud.google.com/logs/query;query=resource.labels.job_id%3D%22cloud1%22%20timestamp%3E%3D%222020-10-23T07:43:09Z%22?project=msds434dv6
 <img width="1208" alt="8" src="https://user-images.githubusercontent.com/38410965/97050061-b72ee880-154a-11eb-93ef-935641269477.png">
 
-
+[x] step 9: review the job
+  - `gcloud ai-platform jobs describe cloud1'
 <img width="682" alt="9" src="https://user-images.githubusercontent.com/38410965/97050080-bdbd6000-154a-11eb-830f-d24c6e940878.png">
 
-
+[x] step 10: review the output files and model stored in the bucket
+  - `gsutil ls gs://dv-auto-ml-depp/census`
+  - `gsutil ls gs://dv-auto-ml-depp/census/export`
 <img width="773" alt="10" src="https://user-images.githubusercontent.com/38410965/97050106-c57d0480-154a-11eb-82bf-1873b006e749.png">
 
+https://cloud.google.com/sdk/gcloud/reference/ai-platform/versions/create
 
+[x] step 11: create version 1 of the model
+  - gcloud ai-platform versions create v1 --model census --staging-bucket gs://dv-auto-ml-depp --origin gs://dv-auto-ml-depp/census/export --runtime-version 1.15
+
+note: the documentation is a bit sketchy here. 
+  - `version_name` is the only mandatory argument and `--model` the only mandatory flag, but errors are thrown unless you include these flags: `--staging_bucket`, `--origin`, `--runtime-version` 
+https://cloud.google.com/sdk/gcloud/reference/ai-platform/versions/create#--model
+
+https://cloud.google.com/sdk/gcloud/reference/ai-platform/versions/create#--staging-bucket
+
+https://cloud.google.com/sdk/gcloud/reference/ai-platform/versions/create#--origin
+
+https://cloud.google.com/sdk/gcloud/reference/ai-platform/versions/create#--runtime-version
 <img width="773" alt="11" src="https://user-images.githubusercontent.com/38410965/97050116-cada4f00-154a-11eb-8b0e-4b624aa81c96.png">
 
+https://cloud.google.com/sdk/gcloud/reference/ai-platform/predict
 
+[x] step 12: locate a `test.json` file to make a single online predictions from version 1 of the model
+  - `ls ../test.*`
+  - `gcloud ai-platform predict --model census --version v1 --json-instances ../test.json`
+—> 78.4% confidence the correct class is “<=50k” 
 <img width="682" alt="12" src="https://user-images.githubusercontent.com/38410965/97050127-cf066c80-154a-11eb-8088-caad85ac9a77.png">
 
-
+`test.json`
 <img width="682" alt="13" src="https://user-images.githubusercontent.com/38410965/97050129-d299f380-154a-11eb-8aa6-6aa3eaad26cf.png">
 
+[x] step 13: copy the `test.json` file into `test2.json` and see model sensitivity with a change the age feature modified from 25 to 20.
+  - `ls ../test*`
+  - `gcloud ai-platform predict --model census --version v1 --json-instances ../test2.json`
+—> 84.7% confidence the correct class is “<=50k” 
 
 <img width="682" alt="14" src="https://user-images.githubusercontent.com/38410965/97050135-d6c61100-154a-11eb-9d6e-fb9da9e28d69.png">
 
