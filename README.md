@@ -125,7 +125,7 @@ https://cloud.google.com/sdk/gcloud/reference/ai-platform/jobs/submit/prediction
   - (somewhat disconcerting to have no message when QUEUED for > 5 minutes)
 <img width="682" alt="16" src="https://user-images.githubusercontent.com/38410965/97050152-dfb6e280-154a-11eb-8c4e-a59bb87ed3a1.png">
 
-    - `nano test_batch.json`
+  - `nano test_batch.json`
 
 <img width="682" alt="17" src="https://user-images.githubusercontent.com/38410965/97050174-e6455a00-154a-11eb-9211-c7243ed8716e.png">
 
