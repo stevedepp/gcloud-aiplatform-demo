@@ -2,10 +2,9 @@
 
 Geewax, J. J. (2018). Google Cloud Platform in Action. Manning Publications.
 
-My demo video above and here are the 16 steps followed by screenshots of their execution: 
-
 [![](http://img.youtube.com/vi/Wp7F7zj4vVo/0.jpg)](http://www.youtube.com/watch?v=Wp7F7zj4vVo "Demo of GCP ai-platform API use via their command line interface")
 
+My demo video above and here are the 16 steps followed by screenshots of their execution: 
 
 https://cloud.google.com/sdk/gcloud/reference/services/enable
 
