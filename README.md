@@ -5,7 +5,7 @@ Geewax, J. J. (2018). Google Cloud Platform in Action. Manning Publications.
 <video src="http://www.youtube.com/watch?v=Wp7F7zj4vVo" autoplay controls loop muted style="max-width: 730px;">
 </video>
 
-<iframe width="420" height="315"
+<iframe 
 src="http://www.youtube.com/watch?v=Wp7F7zj4vVo">
 </iframe>
 
