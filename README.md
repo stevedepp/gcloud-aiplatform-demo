@@ -2,11 +2,9 @@
 
 Geewax, J. J. (2018). Google Cloud Platform in Action. Manning Publications.
 
-<video src="http://www.youtube.com/watch?v=Wp7F7zj4vVo" autoplay controls loop muted style="max-width: 730px;">
-</video>
 
-<video src="http://www.youtube.com/watch?v=Wp7F7zj4vVo">
-</video>
+https://github.com/stevedepp/gcloud-aiplatform-demo/assets/38410965/a8776483-46af-42a9-9942-2cbd946ae03a
+
 
 [![](http://img.youtube.com/vi/Wp7F7zj4vVo/0.jpg)](http://www.youtube.com/watch?v=Wp7F7zj4vVo "Demo of GCP ai-platform API use via their command line interface")
 
