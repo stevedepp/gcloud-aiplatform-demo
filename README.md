@@ -6,7 +6,7 @@ Geewax, J. J. (2018). Google Cloud Platform in Action. Manning Publications.
 https://github.com/stevedepp/gcloud-aiplatform-demo/assets/38410965/a8776483-46af-42a9-9942-2cbd946ae03a
 
 
-[![](http://img.youtube.com/vi/Wp7F7zj4vVo/0.jpg)](http://www.youtube.com/watch?v=Wp7F7zj4vVo "Demo of GCP ai-platform API use via their command line interface")
+[![](https://github.com/stevedepp/gcloud-aiplatform-demo/assets/38410965/a8776483-46af-42a9-9942-2cbd946ae03a)](http://www.youtube.com/watch?v=Wp7F7zj4vVo "Demo of GCP ai-platform API use via their command line interface")
 
 My demo video above and here are the 16 steps with each step followed by a screenshot of its execution:     
 (please click on the above video to hear sound) 
